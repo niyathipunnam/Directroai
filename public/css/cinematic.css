@@ -1,0 +1,235 @@
+/* ==========================================================
+   DIRECTRO AI - Cinematic Animations (Dark Theme)
+   ========================================================== */
+
+/* 1. CLAPPERBOARD (Dashboard, Storyboard) */
+.anim-clapper {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+.anim-clapper-stick {
+  transform-origin: 5% 90%;
+  animation: clapDown 2.5s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+@keyframes clapDown {
+  0%, 15% { transform: rotate(-35deg); }
+  25%, 100% { transform: rotate(0deg); }
+}
+
+/* 2. CINEMA CAMERA (Environment, Video Generation) */
+.anim-camera {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+.anim-cam-reel {
+  transform-origin: center;
+  animation: spinReel 3s linear infinite;
+}
+.anim-cam-dot {
+  animation: recPulse 1.5s infinite;
+}
+@keyframes spinReel {
+  100% { transform: rotate(360deg); }
+}
+@keyframes recPulse {
+  0%, 100% { fill: #ff3333; opacity: 1; }
+  50% { fill: #990000; opacity: 0.5; }
+}
+
+/* 3. AUDIO WAVEFORM (Audio) */
+.anim-audio {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4px;
+}
+.anim-audio-bar {
+  width: 8px;
+  background: var(--primary);
+  border-radius: 4px;
+  animation: waveBar 1.2s infinite ease-in-out alternate;
+}
+.anim-audio-bar:nth-child(1) { height: 40%; animation-delay: 0s; }
+.anim-audio-bar:nth-child(2) { height: 80%; animation-delay: -0.2s; }
+.anim-audio-bar:nth-child(3) { height: 60%; animation-delay: -0.4s; }
+.anim-audio-bar:nth-child(4) { height: 100%; animation-delay: -0.6s; }
+.anim-audio-bar:nth-child(5) { height: 50%; animation-delay: -0.8s; }
+
+@keyframes waveBar {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+/* 4. FILM STRIP / MEDIA (Media Library) */
+.anim-filmstrip {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.anim-strip-inner {
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  animation: stripSlide 4s linear infinite;
+}
+@keyframes stripSlide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* 5. LENS FOCUS (Character / Settings) */
+.anim-lens {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+.anim-lens-ring {
+  transform-origin: center;
+  animation: lensFocus 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes lensFocus {
+  0%, 100% { transform: scale(0.9) rotate(0deg); stroke-width: 2; }
+  50% { transform: scale(1.1) rotate(45deg); stroke-width: 1.5; stroke: var(--primary); }
+}
+
+/* 6. EDITING SCISSORS / PLAYHEAD (Editor) */
+.anim-edit {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+.anim-edit-scissor-top {
+  transform-origin: 30% 50%;
+  animation: snipTop 2s infinite ease-in-out;
+}
+.anim-edit-scissor-bottom {
+  transform-origin: 30% 50%;
+  animation: snipBottom 2s infinite ease-in-out;
+}
+@keyframes snipTop {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+@keyframes snipBottom {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+/* OVERRIDES FOR LOADERS */
+.cinematic-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 30px;
+}
+
+
+
+
+/* ==========================================================
+   CINEMATIC LOGIN ANIMATION (CLAPPERBOARD)
+   ========================================================== */
+.cinematic-auth-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-main);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cinematic-scene {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cinematic-spotlight {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 80%;
+  height: 120%;
+  background: radial-gradient(ellipse at top, rgba(92, 68, 194, 0.15) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+  animation: spotlightFade 2s ease-in forwards;
+}
+
+@keyframes spotlightFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.director-svg {
+  width: 600px;
+  height: 700px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: directorEnter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+}
+
+@keyframes directorEnter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clapper Stick Anim */
+.director-clapper-stick {
+  transform-origin: 180px 270px;
+  transform: rotate(0deg);
+  animation: clapBoard 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes clapBoard {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-35deg); } /* stick goes up */
+  70% { transform: rotate(-35deg); } /* holds */
+  75% { transform: rotate(0deg); }   /* CLAP! */
+  100% { transform: rotate(0deg); }
+}
+
+/* Form Reveal */
+.cinematic-auth-form-container {
+  width: 40%;
+  min-width: 450px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8%;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: scale(0.9);
+  /* The stick claps down at 75% of 3s = 2.25s. We pop the form at 2.25s */
+  animation: formPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.25s forwards;
+}
+
+@keyframes formPop {
+  0% { opacity: 0; transform: scale(0.85); }
+  70% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+  .cinematic-scene { display: none; }
+  .cinematic-auth-form-container { width: 100%; padding-right: 0; padding: 20px; animation-delay: 0s; }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIRECTRO AI - Professional Filmmaking Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css?v=3" />
+  <link rel="stylesheet" href="/css/components.css?v=3" />
+  <link rel="stylesheet" href="/css/editor.css?v=3" />
+  <link rel="stylesheet" href="/css/cinematic.css?v=3" />
+</head>
+<body>
+  <div id="app">
+    <!-- Auth View -->
+    <div id="page-auth" class="page hidden"></div>
+
+    <!-- Main Workspace Layout -->
+    <div id="app-layout" class="hidden">
+      <!-- Top Application Header -->
+      <header id="topbar"></header>
+
+      <!-- App Body (Sidebar + Main Content) -->
+      <div class="app-body">
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar"></nav>
+        
+        <!-- Main Content Area -->
+        <main id="main-content">
+          <!-- Workspace -->
+          <div id="page-dashboard" class="page hidden"></div>
+          
+          <!-- Pre-Production -->
+          <div id="page-character" class="page hidden"></div>
+          <div id="page-environment" class="page hidden"></div>
+          <div id="page-storyboard" class="page hidden"></div>
+          
+          <!-- Production -->
+          <div id="page-aiclips" class="page hidden"></div>
+          <div id="page-audio" class="page hidden"></div>
+          <div id="page-media" class="page hidden"></div>
+          
+          <!-- Post-Production -->
+          <div id="page-editor" class="page hidden"></div>
+          <div id="page-export" class="page hidden"></div>
+          <div id="page-settings" class="page hidden"></div>
+          <div id="page-profile" class="page hidden"></div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Modal Container -->
+  <div id="modal-container"></div>
+
+  <!-- Core Scripts -->
+  <script src="/js/api.js?v=3"></script>
+  
+  <!-- UI Components -->
+  <script src="/js/components/statusBadge.js?v=3"></script>
+  <script src="/js/components/modal.js?v=3"></script>
+  <script src="/js/components/animations.js?v=3"></script>
+  <script src="/js/components/nav.js?v=3"></script>
+  
+  <!-- Page Controllers -->
+  <script src="/js/pages/auth.js?v=3"></script>
+  <script src="/js/pages/dashboard.js?v=3"></script>
+  <script src="/js/pages/character.js?v=3"></script>
+  <script src="/js/pages/environment.js?v=3"></script>
+  <script src="/js/pages/storyboard.js?v=3"></script>
+  <script src="/js/pages/aiclips.js?v=3"></script>
+  <script src="/js/pages/audio.js?v=3"></script>
+  <script src="/js/pages/media.js?v=3"></script>
+  <script src="/js/pages/editor.js?v=3"></script>
+  <script src="/js/pages/export.js?v=3"></script>
+  <script src="/js/pages/settings.js?v=3"></script>
+  <script src="/js/pages/profile.js?v=3"></script>
+  
+  <!-- Application Router (must load last) -->
+  <script src="/js/app.js?v=3"></script>
+</body>
+</html>

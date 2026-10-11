@@ -1,0 +1,55 @@
+# Dependency directories
+node_modules/
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables & secrets (NEVER commit secrets!)
+.env
+.env.local
+.env.*.local
+
+# User uploads & generated temp media (store on cloud/S3 or create empty dir on deploy)
+uploads/*
+!uploads/.gitkeep
+
+# Temporary scripts & scratch files
+*.log
+test_*
+patch_*
+fix_*
+revert_*
+update_*
+editor_from_*
+check_*
+clean_*
+add_*
+build_*
+inject*
+nav_restore*
+restore_*
+wrap_*
+remove_*
+print_*
+cache_bust*
+apply_*
+ensure_*
+attach_*
+append_*
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+ai_service/.env
+node_modules/
+uploads/
+generated/
+service-account.json
+credentials.json

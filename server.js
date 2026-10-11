@@ -6,7 +6,7 @@ const fs = require('fs');
 
 const app = express();
 
-// Ensure upload directories exist
+// Ensure upload directories exist (safe for serverless / read-only filesystems)
 const uploadDirs = [
   'uploads/characters',
   'uploads/environments',
@@ -15,7 +15,13 @@ const uploadDirs = [
   'uploads/audio',
   'uploads/exports',
 ];
-uploadDirs.forEach(dir => fs.mkdirSync(path.join(__dirname, dir), { recursive: true }));
+uploadDirs.forEach(dir => {
+  try {
+    fs.mkdirSync(path.join(__dirname, dir), { recursive: true });
+  } catch (err) {
+    // Read-only filesystem on serverless (e.g. Vercel)
+  }
+});
 
 // Middleware
 app.use(cors());
